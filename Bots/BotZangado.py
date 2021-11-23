@@ -30,6 +30,8 @@ class BotZangado(Bot):
             print('NÃO! PEÇA PARA OUTRO! GRRR')
         elif cmd == '4':
             print('SAI LOGO DAQUI!')
+        else:
+            print('ESSE COMANDO NÃO EXISTE, IDIOTA!')
 
     def boas_vindas(self):
         return 'Você me escolheu, que ÓDIO!'
