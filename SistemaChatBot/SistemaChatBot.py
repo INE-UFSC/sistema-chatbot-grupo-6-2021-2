@@ -55,7 +55,11 @@ class SistemaChatBot:
 
     def escolhe_bot(self):
         escolha = int(input('Digite o numero do bot escolhido: '))
-        self.__bot = self.__lista_bots[escolha] 
+        if len(self.__lista_bots) > escolha:
+            self.__bot = self.__lista_bots[escolha]
+        else:
+            print('escolha um numero válido')
+            self.escolhe_bot()
 
     def mostra_comandos_bot(self):
         bot = self.__bot
@@ -64,7 +68,9 @@ class SistemaChatBot:
     def le_envia_comando(self):
         escolha = input('Digite o comando desejado (ou -1 para fechar o programa): ')
         if escolha == '-1':
+            print()
             print(self.__bot.despedida())
+            print()
             return 0
         else:
             self.__bot.executa_comando(escolha)
@@ -78,6 +84,7 @@ class SistemaChatBot:
         self.escolhe_bot()
         print(self.__bot.boas_vindas())
         while True:
+            print()
             self.mostra_comandos_bot()
             print()
             escolha = self.le_envia_comando()
