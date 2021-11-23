@@ -30,6 +30,9 @@ class BotTriste(Bot):
             print('Até posso, mas acho que não ajudaria muito de qualquer jeito...')
         elif cmd == '4':
             print('Tchau...')
+        else:
+            print('Você não digitou um comando válido e estou muito triste :(')
+            
 
     def boas_vindas(self):
         return 'Você tinha que escolher logo o mais inútil?'
