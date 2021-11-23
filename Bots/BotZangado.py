@@ -20,15 +20,15 @@ class BotZangado(Bot):
     def apresentacao(self):
         return f'Meu nome é {self.__nome}!!! EU TE ODEIO! Não fale comigo.'
     
-    def executa_comando(self,cmd):
+    def executa_comando(self, cmd: str):
         print('     --> Eu te respondo: ', end='')
-        if cmd == 1:
+        if cmd == '1':
             print('NÃO FALE COMIGO!')
-        elif cmd == 2:
+        elif cmd == '2':
             print('COM RAIVA!')
-        elif cmd == 3:
+        elif cmd == '3':
             print('NÃO! PEÇA PARA OUTRO! GRRR')
-        elif cmd == 4:
+        elif cmd == '4':
             print('SAI LOGO DAQUI!')
 
     def boas_vindas(self):
