@@ -3,26 +3,36 @@ from Bots.Bot import Bot
 class BotZangado(Bot):
     def __init__(self,nome):
         self.__nome = nome
+        self.__comandos = {
+            '1': 'Oláa!!',
+            '2': 'Como você está? :)',
+            '3': 'Pode me ajudar?',
+            '4': 'Tchau'}
 
-    #nao esquecer o decorator
+    @property #nao esquecer o decorator
     def nome(self):
-        pass
+        return self.__nome
 
-    #nao esquecer o decorator
-    def nome(nome):
-        pass
+    @nome.setter
+    def nome(self, nome):
+        self.nome = nome
 
     def apresentacao(self):
-        pass
- 
-    def mostra_comandos(self):
-        pass
+        return f'Meu nome é {self.__nome}!!! EU TE ODEIO! Não fale comigo.'
     
     def executa_comando(self,cmd):
-        pass
+        print('     --> Eu te respondo: ', end='')
+        if cmd == 1:
+            print('NÃO FALE COMIGO!')
+        elif cmd == 2:
+            print('COM RAIVA!')
+        elif cmd == 3:
+            print('NÃO! PEÇA PARA OUTRO! GRRR')
+        elif cmd == 4:
+            print('SAI LOGO DAQUI!')
 
     def boas_vindas(self):
-        pass
+        return 'Você me escolheu, que ÓDIO!'
 
     def despedida(self):
-        pass
+        return 'Finalmente. NÃO AGUENTAVA MAIS VOCÊ!!!! '
