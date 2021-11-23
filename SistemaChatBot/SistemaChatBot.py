@@ -3,10 +3,7 @@ from Bots.Bot import Bot
 class SistemaChatBot:
     def __init__(self,nomeEmpresa, lista_bots):
         self.__empresa=nomeEmpresa
-        if SistemaChatBot.verifica_bot(lista_bots):
-            self.__lista_bots=lista_bots
-        else:
-            print('lista de bot invalida, insira separadamente')
+        self.__lista_bots = self.adiciona_bot(lista_bots)
         self.__bot = None
     
     @property
@@ -33,32 +30,33 @@ class SistemaChatBot:
     def empresa(self, nome):
         self.__empresa = nome
 
-    @staticmethod
-    def verifica_bot(lista):
-        todosbots = True
-        for x in lista:
-            if not isinstance(x, Bot):
-                todosbots = False
-                break
-        return todosbots
-
+    
+    def adiciona_bot(self, bots):
+        for x in bots:
+            if isinstance(x, Bot):
+                self.__lista_bots.append(x)
+            else:
+                print(f'{x} não é um bot conhecido')
+                
     def boas_vindas(self):
         print(f'Bem-vindo ao sistema da empresa {self.__empresa}')
 
     def mostra_menu(self):
         print("Os bots disponíveis são: ")
         count = 0
-        for x in self.lista_bots:
-            apresentacao = x.apresentacao()
-            print(f"{count} - Bot: {x.nome} - Mensagem de apresentação: {apresentacao}")
+        if len(self.__lista_bots) >= 1:
+            for x in self.lista_bots:
+                apresentacao = x.apresentacao()
+                print(f"{count} - Bot: {x.nome} - Mensagem de apresentação: {apresentacao}")
+        else:
+            print('Não há nenhum bot disponivel')
 
     def escolhe_bot(self):
         escolha = int(input('Digite o numero do bot escolhido: '))
-        self.bot = self.lista_bots[escolha] 
+        self.__bot = self.__lista_bots[escolha] 
 
     def mostra_comandos_bot(self):
-        pass
-        ##mostra os comandos disponíveis no bot escolhido
+        bot = self.__bot
 
     def le_envia_comando(self):
         pass
