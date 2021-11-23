@@ -1,23 +1,60 @@
 from Bots.Bot import Bot
 
 class SistemaChatBot:
-    def __init__(self,nomeEmpresa,lista_bots):
+    def __init__(self,nomeEmpresa, lista_bots):
         self.__empresa=nomeEmpresa
-        ##verificar se a lista de bots contém apenas bots
-        self.__lista_bots=lista_bots
+        if SistemaChatBot.verifica_bot(lista_bots):
+            self.__lista_bots=lista_bots
+        else:
+            print('lista de bot invalida, insira separadamente')
         self.__bot = None
     
+    @property
+    def bot(self):
+        return self.__bot
+
+    @bot.setter
+    def bot(self, bot):
+        self.__bot = bot
+
+    @property
+    def lista_bots(self):
+        return self.__lista_bots
+
+    @lista_bots.setter
+    def lista_bots(self, lista):
+        self.__lista_bots = lista
+
+    @property
+    def empresa(self):
+        return self.__empresa
+
+    @empresa.setter
+    def empresa(self, nome):
+        self.__empresa = nome
+
+    @staticmethod
+    def verifica_bot(lista):
+        todosbots = True
+        for x in lista:
+            if not isinstance(x, Bot):
+                todosbots = False
+                break
+        return todosbots
+
     def boas_vindas(self):
-        pass
-        ##mostra mensagem de boas vindas do sistema
+        print(f'Bem-vindo ao sistema da empresa {self.__empresa}')
 
     def mostra_menu(self):
-        pass
-        ##mostra o menu de escolha de bots
-    
+        print("Os bots disponíveis são: ")
+        count = 0
+        for x in self.lista_bots:
+            apresentacao = x.apresentacao()
+            print(f"{count} - Bot: {x.nome} - Mensagem de apresentação: {apresentacao}")
+
     def escolhe_bot(self):
-        pass
-        ##faz a entrada de dados do usuário e atribui o objeto ao atributo __bot 
+        escolha = int(input('Digite o numero do bot escolhido: '))
+        self.bot = self.lista_bots[escolha] 
 
     def mostra_comandos_bot(self):
         pass
