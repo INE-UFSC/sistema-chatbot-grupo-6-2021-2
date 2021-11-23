@@ -3,7 +3,8 @@ from Bots.Bot import Bot
 class SistemaChatBot:
     def __init__(self,nomeEmpresa, lista_bots):
         self.__empresa=nomeEmpresa
-        self.__lista_bots = self.adiciona_bot(lista_bots)
+        self.__lista_bots = []
+        self.adiciona_bot(lista_bots)
         self.__bot = None
     
     @property
@@ -57,6 +58,7 @@ class SistemaChatBot:
 
     def mostra_comandos_bot(self):
         bot = self.__bot
+        bot.mostra_comandos()
 
     def le_envia_comando(self):
         pass
