@@ -39,7 +39,7 @@ class BotZangado(Bot):
             print('ESSE COMANDO NÃO EXISTE, IDIOTA!')
 
     def boas_vindas(self):
-        return 'Você me escolheu, que ÓDIO!'
+        return f'--> {self.nome} diz: Você me escolheu, que ÓDIO!'
 
     def despedida(self):
-        return 'Finalmente. NÃO AGUENTAVA MAIS VOCÊ!!!! '
+        return f'--> {self.nome} diz: Finalmente. NÃO AGUENTAVA MAIS VOCÊ!!!! '

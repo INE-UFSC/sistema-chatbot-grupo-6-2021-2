@@ -39,7 +39,7 @@ class BotTriste(Bot):
             
 
     def boas_vindas(self):
-        return 'Você tinha que escolher logo o mais inútil?'
+        return f'--> {self.nome} diz: Você tinha que escolher logo o mais inútil?'
 
     def despedida(self):
-        return 'Finalmente você vai se livrar de mim!'
+        return f'--> {self.nome} diz: Finalmente você vai se livrar de mim!'
