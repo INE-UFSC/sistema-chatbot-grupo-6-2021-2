@@ -16,6 +16,11 @@ class BotZangado(Bot):
     @nome.setter
     def nome(self, nome):
         self.nome = nome
+    
+    @property
+    def comandos(self):
+        return self.__comandos
+
 
     def apresentacao(self):
         return f'Meu nome é {self.__nome}!!! EU TE ODEIO! Não fale comigo.'

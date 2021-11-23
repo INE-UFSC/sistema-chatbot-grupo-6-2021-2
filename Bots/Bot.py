@@ -18,8 +18,8 @@ class Bot(ABC):
         self.__nome = nome
 
     def mostra_comandos(self):
-        for cmd in self.__comandos:
-            print(cmd, "-", self.__comandos[cmd])
+        for cmd in self.comandos:
+            print(cmd, "-", self.comandos[cmd])
 
     @abstractmethod
     def executa_comando(self, cmd):
