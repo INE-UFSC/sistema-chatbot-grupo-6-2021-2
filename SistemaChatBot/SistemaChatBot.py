@@ -49,6 +49,7 @@ class SistemaChatBot:
             for x in self.lista_bots:
                 apresentacao = x.apresentacao()
                 print(f"{count} - Bot: {x.nome} - Mensagem de apresentação: {apresentacao}")
+                count += 1
         else:
             print('Não há nenhum bot disponivel')
 
