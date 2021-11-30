@@ -23,14 +23,6 @@ class BotZangado(Bot):
     def comandos(self):
         return self.__comandos
 
-    @property
-    def comando_erro(self):
-        return self.__comando_erro
-    
-    @comando_erro.setter
-    def comando_erro(self, comando_erro: str):
-        self.__comando_erro = comando_erro
-
     def apresentacao(self):
         return f'Meu nome é {self.__nome}!!! EU TE ODEIO! Não fale comigo.'
     

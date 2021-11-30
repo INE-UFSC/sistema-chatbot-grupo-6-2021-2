@@ -8,6 +8,7 @@ class Bot(ABC):
     def __init__(self, nome):
         self.__nome = nome
         self.__comandos = []
+        self.__comando_erro = "Não consigo responder essa pergunta"
 
     @property
     def nome(self):
@@ -20,6 +21,15 @@ class Bot(ABC):
     @property
     def comandos(self):
         return self.__comandos
+
+    @property
+    def comando_erro(self):
+        return self.__comando_erro
+    
+    @comando_erro.setter
+    def comando_erro(self, comando_erro: str):
+        self.__comando_erro = comando_erro
+
 
     @comandos.setter
     def comandos(self, comandos):
@@ -35,7 +45,6 @@ class Bot(ABC):
         for index, comando in enumerate(self.__comandos):
             print(f'{index} - {comando.comando}')
 
-    @abstractmethod
     def executa_comando(self, cmd):
         print('     --> Eu te respondo: ', end='')
         if len(self.comandos) >= cmd:
