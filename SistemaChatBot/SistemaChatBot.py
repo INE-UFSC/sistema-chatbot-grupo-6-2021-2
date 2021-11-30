@@ -54,11 +54,16 @@ class SistemaChatBot:
             print('Não há nenhum bot disponivel')
 
     def escolhe_bot(self):
-        escolha = int(input('Digite o numero do bot escolhido: '))
-        if len(self.__lista_bots) > escolha:
-            self.__bot = self.__lista_bots[escolha]
+        escolha = input('Digite o numero do bot escolhido: ')
+        if escolha.isnumeric():
+            escolha = int(escolha)
+            if len(self.__lista_bots) > escolha:
+                self.__bot = self.__lista_bots[escolha]
+            else:
+                print('escolha um numero válido')
+                self.escolhe_bot()
         else:
-            print('escolha um numero válido')
+            print("Por favor digite um número")
             self.escolhe_bot()
 
     def mostra_comandos_bot(self):
