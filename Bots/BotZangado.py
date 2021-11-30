@@ -27,7 +27,6 @@ class BotZangado(Bot):
     def comando_erro(self):
         return self.__comando_erro
 
-        self.__comando_erro = comando_erro
     def apresentacao(self):
         return f'Meu nome é {self.__nome}!!! EU TE ODEIO! Não fale comigo.'
     
