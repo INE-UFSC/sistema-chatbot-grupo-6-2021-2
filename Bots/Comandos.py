@@ -1,3 +1,5 @@
+from random import randint
+
 class Comandos:
 
     def __init__(self, comando: str, resposta: str):
@@ -29,3 +31,7 @@ class Comandos:
     def mostrar_respostas(self):
         for index, x in enumerate(self.resposta):
             print(f'{index} - {x}')
+    
+    def pegar_resposta(self):
+        random = randint(0, len(self.resposta))
+        return self.resposta[random]
