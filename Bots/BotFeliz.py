@@ -1,13 +1,16 @@
 from Bots.Bot import Bot
+from Bots.Comandos import Comandos
 
 class BotFeliz(Bot):
     def __init__(self,nome):
         self.__nome = nome
-        self.__comandos = {
-            '1': 'Oláa!!',
-            '2': 'Como você está? :)',
-            '3': 'Pode me ajudar?',
-            '4': 'Tchau'}
+        self.__comandos = [
+            Comandos('Oláa!!', 'Oi! Que dia lindo, não é mesmo?!'),
+            Comandos('Como você está? :)', 'Estou maravilhosamente feliz!!'),
+            Comandos('Pode me ajudar?', 'Claro que posso! Será um prazer!'),
+            Comandos('Tchau', 'Até mais, tenha um bom dia! ')
+        ]
+        self.__comando_erro = 'Digite um comando válido para eu conseguir te responder!'
 
     @property
     def nome(self):
@@ -22,21 +25,7 @@ class BotFeliz(Bot):
         return self.__comandos
 
     def apresentacao(self):
-        return f'Meu nome é {self.__nome}! Prazer em conhece-lo!'
-    
-    def executa_comando(self,cmd):
-        print('     --> Eu te respondo: ', end='')
-        if cmd == '1':
-            print('Oi! Que dia lindo, não é mesmo?!')
-        elif cmd == '2':
-            print('Estou maravilhosamente feliz!!')
-        elif cmd == '3':
-            print('Claro que posso! Será um prazer!')
-        elif cmd == '4':
-            print('Até mais, tenha um bom dia! ')
-        else:
-            print('Digite um comando válido para eu conseguir te responder!')
-            
+        return f'Meu nome é {self.__nome}! Prazer em conhece-lo!'           
 
     def boas_vindas(self):
         return f'--> {self.nome} diz: Que bom que você me escolheu!'

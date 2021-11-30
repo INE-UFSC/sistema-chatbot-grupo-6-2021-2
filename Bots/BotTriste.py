@@ -1,13 +1,16 @@
 from Bots.Bot import Bot
+from Bots.Comandos import Comandos
 
 class BotTriste(Bot):
     def __init__(self,nome):
         self.__nome = nome
-        self.__comandos = {
-            '1': 'Oláa!!',
-            '2': 'Como você está? :)',
-            '3': 'Pode me ajudar?',
-            '4': 'Tchau'}
+        self.__comandos = [
+            Comandos('Oláa!!', 'Oi...'),
+            Comandos('Como você está? :)', 'Queria sentir algo para te responder...' ),
+            Comandos('Pode me ajudar?', 'Até posso, mas acho que não ajudaria muito de qualquer jeito...'),
+            Comandos('Tchau', 'Tchau...')
+        ]
+        self.__comando_erro = 'Você não digitou um comando válido e estou muito triste :('
 
     @property
     def nome(self):
@@ -23,20 +26,6 @@ class BotTriste(Bot):
 
     def apresentacao(self):
         return f'Meu nome, infelizmente, é {self.__nome}...'
-    
-    def executa_comando(self,cmd):
-        print('     --> Eu te respondo: ', end='')
-        if cmd == '1':
-            print('Oi...')
-        elif cmd == '2':
-            print('Queria sentir algo para te responder...')
-        elif cmd == '3':
-            print('Até posso, mas acho que não ajudaria muito de qualquer jeito...')
-        elif cmd == '4':
-            print('Tchau...')
-        else:
-            print('Você não digitou um comando válido e estou muito triste :(')
-            
 
     def boas_vindas(self):
         return f'--> {self.nome} diz: Você tinha que escolher logo o mais inútil?'
