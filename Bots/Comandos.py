@@ -33,5 +33,5 @@ class Comandos:
             print(f'{index} - {x}')
     
     def pegar_resposta(self):
-        random = randint(0, len(self.resposta))
+        random = randint(0, len(self.resposta)-1)
         return self.resposta[random]

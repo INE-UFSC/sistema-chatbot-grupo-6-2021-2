@@ -23,6 +23,10 @@ class BotFeliz(Bot):
     @property
     def comandos(self):
         return self.__comandos
+    
+    @property
+    def comando_erro(self):
+        return self.__comando_erro
 
     def apresentacao(self):
         return f'Meu nome é {self.__nome}! Prazer em conhece-lo!'           

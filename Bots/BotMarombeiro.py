@@ -22,6 +22,10 @@ class BotMarombeiro(Bot):
     @property
     def comandos(self):
         return self.__comandos
+    
+    @property
+    def comando_erro(self):
+        return self.__comando_erro
 
     def apresentacao(self):
         return "Treino e dieta eu não furo, tá ligado?"

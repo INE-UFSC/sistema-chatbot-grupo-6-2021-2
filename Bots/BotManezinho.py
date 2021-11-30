@@ -23,6 +23,10 @@ class BotManezinho(Bot):
     @nome.setter
     def nome(self, nome):
         self.__nome = nome
+        
+    @property
+    def comando_erro(self):
+        return self.__comando_erro
 
     def apresentacao(self):
         return f"Ó-lhó-lhó, me chamo {self.__nome}. Quex conversar comigo?"

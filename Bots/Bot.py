@@ -30,7 +30,6 @@ class Bot(ABC):
     def comando_erro(self, comando_erro: str):
         self.__comando_erro = comando_erro
 
-
     @comandos.setter
     def comandos(self, comandos):
         self.__comandos = comandos
@@ -42,14 +41,18 @@ class Bot(ABC):
         self.__comandos.pop(index)
     
     def mostra_comandos(self):
-        for index, comando in enumerate(self.__comandos):
+        for index, comando in enumerate(self.comandos):
             print(f'{index} - {comando.comando}')
 
     def executa_comando(self, cmd):
         print('     --> Eu te respondo: ', end='')
-        if len(self.comandos) >= cmd:
-            print(self.comandos[cmd].pegar_resposta())
-        else:
+        erro_ocorre = True
+        if cmd.isnumeric() == True:
+            cmd = int(cmd)
+            if len(self.comandos) > cmd:
+                print(self.comandos[cmd].pegar_resposta())
+                erro_ocorre = False         
+        if erro_ocorre:
             print(self.comando_erro)
 
 
