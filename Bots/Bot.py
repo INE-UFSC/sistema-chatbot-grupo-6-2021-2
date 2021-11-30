@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 import random as r
-from Comandos import Comandos
+from Bots.Comandos import Comandos
 class Bot(ABC):
 
     def __init__(self, nome):
