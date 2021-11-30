@@ -73,9 +73,6 @@ class SistemaChatBot:
     def le_envia_comando(self):
         escolha = input('Digite o comando desejado (ou -1 para fechar o programa): ')
         if escolha == '-1':
-            print()
-            print(self.__bot.despedida())
-            print()
             return 0
         else:
             self.__bot.executa_comando(escolha)
@@ -94,5 +91,8 @@ class SistemaChatBot:
             print()
             escolha = self.le_envia_comando()
             if escolha == 0:
+                print()
+                print(self.__bot.despedida())
+                print()
                 break
         

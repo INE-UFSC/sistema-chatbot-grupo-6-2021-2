@@ -2,12 +2,12 @@
 
 from abc import ABC, abstractmethod
 import random as r
-
+from Comandos import Comandos
 class Bot(ABC):
 
     def __init__(self, nome):
         self.__nome = nome
-        self.__comandos = {}
+        self.__comandos = []
 
     @property
     def nome(self):
@@ -17,9 +17,15 @@ class Bot(ABC):
     def nome(self, nome):
         self.__nome = nome
 
+    def adicionar_comando(self, comando: str, resposta: str):
+        self.__comandos.append(Comandos(comando, resposta))
+
+    def remove_comando(self, index):
+        self.__comandos.pop(index)
+    
     def mostra_comandos(self):
-        for cmd in self.comandos:
-            print(cmd, "-", self.comandos[cmd])
+        for index, comando in enumerate(self.__comandos):
+            print(f'{index} - {comando.comando}')
 
     @abstractmethod
     def executa_comando(self, cmd):
