@@ -1,13 +1,14 @@
 from Bots.Bot import Bot
-
+from Bots.Comandos import Comandos
 class BotZangado(Bot):
     def __init__(self,nome):
         self.__nome = nome
-        self.__comandos = {
-            '1': 'Oláa!!',
-            '2': 'Como você está? :)',
-            '3': 'Pode me ajudar?',
-            '4': 'Tchau'}
+        self.__comandos = [
+            Comandos('Oláa!!', 'NÃO FALE COMIGO!'),
+            Comandos('Como você está? :)', 'COM RAIVA!' ),
+            Comandos('Pode me ajudar?', 'NÃO! PEÇA PARA OUTRO! GRRR'),
+            Comandos('Tchau', 'SAI LOGO DAQUI!')
+        ]
 
     @property #nao esquecer o decorator
     def nome(self):
@@ -27,16 +28,10 @@ class BotZangado(Bot):
     
     def executa_comando(self, cmd: str):
         print('     --> Eu te respondo: ', end='')
-        if cmd == '1':
-            print('NÃO FALE COMIGO!')
-        elif cmd == '2':
-            print('COM RAIVA!')
-        elif cmd == '3':
-            print('NÃO! PEÇA PARA OUTRO! GRRR')
-        elif cmd == '4':
-            print('SAI LOGO DAQUI!')
+        if len(self.__comandos) >= cmd:
+            print(self.__comandos[cmd].resposta)
         else:
-            print('ESSE COMANDO NÃO EXISTE, IDIOTA!')
+            print('NÃO EXISTE ESSE COMANDO, IDIOTA!')
 
     def boas_vindas(self):
         return f'--> {self.nome} diz: Você me escolheu, que ÓDIO!'
