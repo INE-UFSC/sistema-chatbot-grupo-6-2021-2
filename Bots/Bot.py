@@ -16,7 +16,15 @@ class Bot(ABC):
     @nome.setter
     def nome(self, nome):
         self.__nome = nome
+    
+    @property
+    def comandos(self):
+        return self.__comandos
 
+    @comandos.setter
+    def comandos(self, comandos):
+        self.__comandos = comandos
+        
     def adicionar_comando(self, comando: str, resposta: str):
         self.__comandos.append(Comandos(comando, resposta))
 
