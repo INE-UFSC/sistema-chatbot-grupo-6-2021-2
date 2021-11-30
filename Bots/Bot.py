@@ -37,7 +37,12 @@ class Bot(ABC):
 
     @abstractmethod
     def executa_comando(self, cmd):
-        pass
+        print('     --> Eu te respondo: ', end='')
+        if len(self.comandos) >= cmd:
+            print(self.comandos[cmd].pegar_resposta())
+        else:
+            print(self.comando_erro)
+
 
     @abstractmethod
     def boas_vindas():

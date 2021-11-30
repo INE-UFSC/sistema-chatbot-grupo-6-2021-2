@@ -9,6 +9,7 @@ class BotZangado(Bot):
             Comandos('Pode me ajudar?', 'NÃO! PEÇA PARA OUTRO! GRRR'),
             Comandos('Tchau', 'SAI LOGO DAQUI!')
         ]
+        self.__comando_erro = 'NÃO EXISTE ESSE COMANDO, IDIOTA!'
 
     @property #nao esquecer o decorator
     def nome(self):
@@ -22,17 +23,17 @@ class BotZangado(Bot):
     def comandos(self):
         return self.__comandos
 
+    @property
+    def comando_erro(self):
+        return self.__comando_erro
+    
+    @comando_erro.setter
+    def comando_erro(self, comando_erro: str):
+        self.__comando_erro = comando_erro
 
     def apresentacao(self):
         return f'Meu nome é {self.__nome}!!! EU TE ODEIO! Não fale comigo.'
     
-    def executa_comando(self, cmd: str):
-        print('     --> Eu te respondo: ', end='')
-        if len(self.__comandos) >= cmd:
-            print(self.__comandos[cmd].resposta)
-        else:
-            print('NÃO EXISTE ESSE COMANDO, IDIOTA!')
-
     def boas_vindas(self):
         return f'--> {self.nome} diz: Você me escolheu, que ÓDIO!'
 
