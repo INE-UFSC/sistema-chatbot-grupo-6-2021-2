@@ -1,15 +1,15 @@
 from Bots.Bot import Bot
-from Bots.Comandos import Comandos
+from Bots.Comando import Comando
 
 
 class BotFeliz(Bot):
     def __init__(self, nome):
         self.__nome = nome
         self.__comandos = [
-            Comandos('Oláa!!', 'Oi! Que dia lindo, não é mesmo?!'),
-            Comandos('Como você está? :)', 'Estou maravilhosamente feliz!!'),
-            Comandos('Pode me ajudar?', 'Claro que posso! Será um prazer!'),
-            Comandos('Tchau', 'Até mais, tenha um bom dia! ')
+            Comando('Oláa!!', 'Oi! Que dia lindo, não é mesmo?!'),
+            Comando('Como você está? :)', 'Estou maravilhosamente feliz!!'),
+            Comando('Pode me ajudar?', 'Claro que posso! Será um prazer!'),
+            Comando('Tchau', 'Até mais, tenha um bom dia! ')
         ]
         self.__comando_erro = 'Digite um comando válido para eu conseguir te responder!'
 

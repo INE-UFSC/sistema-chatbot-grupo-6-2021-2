@@ -1,14 +1,19 @@
 from Bots.Bot import Bot
-from Bots.Comandos import Comandos
+from Bots.Comando import Comando
+
 
 class BotManezinho(Bot):
-    def __init__(self,nome):
+    def __init__(self, nome):
         self.__nome = nome
         self.__comandos = [
-            Comandos("Ô meu querido, quesh saber quantas praias existem na nossa linda ilha da magia?", "A nossa belíssima ilha conta com incríveis 42 praias!"),
-            Comandos("Essa é complicada, Avaí ou Figueira?", "Furacão ou Leão? Essa é difícil hein!"),
-            Comandos("Mofas com a pomba na balaia?", "Ô meu querido, isso significa que a pessoa não vai alcançar o seu objetivo, tendesse?"),
-            Comandos("O que é bucica?", "Bucica é como a gente chama as nossas cadelinhas aqui da ilha!")
+            Comando("Ô meu querido, quesh saber quantas praias existem na nossa linda ilha da magia?",
+                    "A nossa belíssima ilha conta com incríveis 42 praias!"),
+            Comando("Essa é complicada, Avaí ou Figueira?",
+                    "Furacão ou Leão? Essa é difícil hein!"),
+            Comando("Mofas com a pomba na balaia?",
+                    "Ô meu querido, isso significa que a pessoa não vai alcançar o seu objetivo, tendesse?"),
+            Comando("O que é bucica?",
+                    "Bucica é como a gente chama as nossas cadelinhas aqui da ilha!")
         ]
         self.__comando_erro = "Uhhh seu tanso! Não é assim não, pô!"
 
@@ -23,7 +28,7 @@ class BotManezinho(Bot):
     @nome.setter
     def nome(self, nome):
         self.__nome = nome
-        
+
     @property
     def comando_erro(self):
         return self.__comando_erro

@@ -1,17 +1,17 @@
 from Bots.Bot import Bot
-from Bots.Comandos import Comandos
+from Bots.Comando import Comando
 
 
 class BotTriste(Bot):
     def __init__(self, nome):
         self.__nome = nome
         self.__comandos = [
-            Comandos('Oláa!!', 'Oi...'),
-            Comandos('Como você está? :)',
-                     'Queria sentir algo para te responder...'),
-            Comandos('Pode me ajudar?',
-                     'Até posso, mas acho que não ajudaria muito de qualquer jeito...'),
-            Comandos('Tchau', 'Tchau...')
+            Comando('Oláa!!', 'Oi...'),
+            Comando('Como você está? :)',
+                    'Queria sentir algo para te responder...'),
+            Comando('Pode me ajudar?',
+                    'Até posso, mas acho que não ajudaria muito de qualquer jeito...'),
+            Comando('Tchau', 'Tchau...')
         ]
         self.__comando_erro = 'Você não digitou um comando válido e estou muito triste :('
 

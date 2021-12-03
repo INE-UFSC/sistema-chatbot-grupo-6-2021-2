@@ -1,15 +1,15 @@
 from Bots.Bot import Bot
-from Bots.Comandos import Comandos
+from Bots.Comando import Comando
 
 
 class BotZangado(Bot):
     def __init__(self, nome):
         self.__nome = nome
         self.__comandos = [
-            Comandos('Oláa!!', 'NÃO FALE COMIGO!'),
-            Comandos('Como você está? :)', 'COM RAIVA!'),
-            Comandos('Pode me ajudar?', 'NÃO! PEÇA PARA OUTRO! GRRR'),
-            Comandos('Tchau', 'SAI LOGO DAQUI!')
+            Comando('Oláa!!', 'NÃO FALE COMIGO!'),
+            Comando('Como você está? :)', 'COM RAIVA!'),
+            Comando('Pode me ajudar?', 'NÃO! PEÇA PARA OUTRO! GRRR'),
+            Comando('Tchau', 'SAI LOGO DAQUI!')
         ]
         self.__comando_erro = 'NÃO EXISTE ESSE COMANDO, IDIOTA!'
 

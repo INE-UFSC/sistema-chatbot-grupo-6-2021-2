@@ -1,8 +1,10 @@
-##implemente as seguintes classes
+# implemente as seguintes classes
 
 from abc import ABC, abstractmethod
 import random as r
-from Bots.Comandos import Comandos
+from Bots.Comando import Comando
+
+
 class Bot(ABC):
 
     def __init__(self, nome):
@@ -17,7 +19,7 @@ class Bot(ABC):
     @nome.setter
     def nome(self, nome):
         self.__nome = nome
-    
+
     @property
     def comandos(self):
         return self.__comandos
@@ -25,7 +27,7 @@ class Bot(ABC):
     @property
     def comando_erro(self):
         return self.__comando_erro
-    
+
     @comando_erro.setter
     def comando_erro(self, comando_erro: str):
         self.__comando_erro = comando_erro
@@ -33,13 +35,13 @@ class Bot(ABC):
     @comandos.setter
     def comandos(self, comandos):
         self.__comandos = comandos
-        
+
     def adicionar_comando(self, comando: str, resposta: str):
-        self.__comandos.append(Comandos(comando, resposta))
+        self.__comandos.append(Comando(comando, resposta))
 
     def remove_comando(self, index):
         self.__comandos.pop(index)
-    
+
     def mostra_comandos(self):
         for index, comando in enumerate(self.comandos):
             print(f'{index} - {comando.comando}')
@@ -51,15 +53,14 @@ class Bot(ABC):
             cmd = int(cmd)
             if len(self.comandos) > cmd:
                 print(self.comandos[cmd].pegar_resposta())
-                erro_ocorre = False         
+                erro_ocorre = False
         if erro_ocorre:
             print(self.comando_erro)
-
 
     @abstractmethod
     def boas_vindas():
         pass
-    
+
     @abstractmethod
     def despedida():
         pass
