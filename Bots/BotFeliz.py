@@ -1,8 +1,9 @@
 from Bots.Bot import Bot
 from Bots.Comandos import Comandos
 
+
 class BotFeliz(Bot):
-    def __init__(self,nome):
+    def __init__(self, nome):
         self.__nome = nome
         self.__comandos = [
             Comandos('Oláa!!', 'Oi! Que dia lindo, não é mesmo?!'),
@@ -19,20 +20,20 @@ class BotFeliz(Bot):
     @nome.setter
     def nome(self, nome):
         self.nome = nome
-        
+
     @property
     def comandos(self):
         return self.__comandos
-    
+
     @property
     def comando_erro(self):
         return self.__comando_erro
 
     def apresentacao(self):
-        return f'Meu nome é {self.__nome}! Prazer em conhece-lo!'           
+        return f'Meu nome é {self.__nome}! Prazer em conhece-lo!'
 
     def boas_vindas(self):
-        return f'--> {self.nome} diz: Que bom que você me escolheu!'
+        return f'Que bom que você me escolheu!'
 
     def despedida(self):
-        return f'--> {self.nome} diz: Que pena que você já vai embora, até a próxima!'
+        return f'Que pena que você já vai embora, até a próxima!'

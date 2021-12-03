@@ -1,12 +1,13 @@
 from Bots.Bot import Bot
 
+
 class SistemaChatBot:
-    def __init__(self,nomeEmpresa, lista_bots):
-        self.__empresa=nomeEmpresa
+    def __init__(self, nomeEmpresa, lista_bots):
+        self.__empresa = nomeEmpresa
         self.__lista_bots = []
         self.adiciona_bot(lista_bots)
         self.__bot = None
-    
+
     @property
     def bot(self):
         return self.__bot
@@ -31,14 +32,13 @@ class SistemaChatBot:
     def empresa(self, nome):
         self.__empresa = nome
 
-    
     def adiciona_bot(self, bots):
         for x in bots:
             if isinstance(x, Bot):
                 self.__lista_bots.append(x)
             else:
                 print(f'{x} não é um bot conhecido')
-                
+
     def boas_vindas(self):
         print(f'Bem-vindo ao sistema da empresa {self.__empresa}')
 
@@ -48,7 +48,8 @@ class SistemaChatBot:
         if len(self.__lista_bots) >= 1:
             for x in self.lista_bots:
                 apresentacao = x.apresentacao()
-                print(f"{count} - Bot: {x.nome} - Mensagem de apresentação: {apresentacao}")
+                print(
+                    f"{count} - Bot: {x.nome} - Mensagem de apresentação: {apresentacao}")
                 count += 1
         else:
             print('Não há nenhum bot disponivel')
@@ -71,7 +72,8 @@ class SistemaChatBot:
         bot.mostra_comandos()
 
     def le_envia_comando(self):
-        escolha = input('Digite o comando desejado (ou -1 para fechar o programa): ')
+        escolha = input(
+            'Digite o comando desejado (ou -1 para fechar o programa): ')
         if escolha == '-1':
             return 0
         else:
@@ -84,7 +86,7 @@ class SistemaChatBot:
         self.mostra_menu()
         print()
         self.escolhe_bot()
-        print(self.__bot.boas_vindas())
+        print(f'--> {self.__bot.nome} diz: {self.__bot.boas_vindas()}')
         while True:
             print()
             self.mostra_comandos_bot()
@@ -92,7 +94,6 @@ class SistemaChatBot:
             escolha = self.le_envia_comando()
             if escolha == 0:
                 print()
-                print(self.__bot.despedida())
+                print(f'--> {self.__bot.nome} diz: {self.__bot.despedida()}')
                 print()
                 break
-        
